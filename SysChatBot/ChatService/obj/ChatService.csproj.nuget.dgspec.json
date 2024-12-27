@@ -1,21 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/ChatService/ChatService.csproj": {}
+    "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/ChatService/ChatService.csproj": {}
   },
   "projects": {
-    "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/ChatService/ChatService.csproj": {
+    "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/ChatService/ChatService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/ChatService/ChatService.csproj",
+        "projectUniqueName": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/ChatService/ChatService.csproj",
         "projectName": "ChatService",
-        "projectPath": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/ChatService/ChatService.csproj",
-        "packagesPath": "/Users/csejrup/.nuget/packages/",
-        "outputPath": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/ChatService/obj/",
+        "projectPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/ChatService/ChatService.csproj",
+        "packagesPath": "/Users/patrickjakobsenjahn/.nuget/packages/",
+        "outputPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/ChatService/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/Users/csejrup/.nuget/NuGet/NuGet.Config"
+          "/Users/patrickjakobsenjahn/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -59,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/patrickjakobsenjahn/.dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

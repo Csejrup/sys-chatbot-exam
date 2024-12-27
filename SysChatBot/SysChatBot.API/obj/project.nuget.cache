@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Ye61z1uN3BA=",
+  "dgSpecHash": "tsQntnntllA=",
   "success": true,
-  "projectFilePath": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/SysChatBot.API/SysChatBot.API.csproj",
+  "projectFilePath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.API/SysChatBot.API.csproj",
   "expectedPackageFiles": [
-    "/Users/csejrup/.nuget/packages/microsoft.aspnetcore.openapi/9.0.0/microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
-    "/Users/csejrup/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+    "/Users/patrickjakobsenjahn/.nuget/packages/microsoft.aspnetcore.openapi/9.0.0/microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
+    "/Users/patrickjakobsenjahn/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
   ],
   "logs": []
 }

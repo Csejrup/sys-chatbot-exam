@@ -8,20 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "/Users/csejrup/.nuget/packages/": {}
+    "/Users/patrickjakobsenjahn/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/LogChatService/LogChatService.csproj",
+      "projectUniqueName": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/LogChatService/LogChatService.csproj",
       "projectName": "LogChatService",
-      "projectPath": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/LogChatService/LogChatService.csproj",
-      "packagesPath": "/Users/csejrup/.nuget/packages/",
-      "outputPath": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/LogChatService/obj/",
+      "projectPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/LogChatService/LogChatService.csproj",
+      "packagesPath": "/Users/patrickjakobsenjahn/.nuget/packages/",
+      "outputPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/LogChatService/obj/",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
-        "/Users/csejrup/.nuget/NuGet/NuGet.Config"
+        "/Users/patrickjakobsenjahn/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -65,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/patrickjakobsenjahn/.dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
