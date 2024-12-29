@@ -27,6 +27,10 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
       },
+     "AddHeadersToRequest": {
+       "userId": "Claims[userId] > value > |"
+       },
+     
       "UpstreamPathTemplate": "/chat/test",
       "UpstreamHttpMethod": [ "GET" ]
     }

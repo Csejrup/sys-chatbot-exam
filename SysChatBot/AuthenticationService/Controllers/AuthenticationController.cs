@@ -22,7 +22,9 @@ public class AuthenticationController(IAuthService authService) : ControllerBase
   public async Task<IActionResult> Authenticate([FromBody] AuthenticationRequest request)
   {
 
-    var token = _authService.GenerateToken();
+    // TODO: Validate user via db and get UserID 
+    var userId = Guid.NewGuid();
+    var token = _authService.GenerateToken(userId);
     return Ok(token);
   }
 

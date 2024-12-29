@@ -2,5 +2,5 @@ namespace AuthenticationService.Services.Interfaces;
 
 public interface IAuthService
 {
-    public string GenerateToken();
+    public string GenerateToken(Guid userId);
 }
