@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Yo9lKNLljCs=",
+  "dgSpecHash": "pHHypU/+c40=",
   "success": true,
   "projectFilePath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/LogChatService/LogChatService.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/patrickjakobsenjahn/.nuget/packages/microsoft.netcore.app.ref/9.0.0/microsoft.netcore.app.ref.9.0.0.nupkg.sha512",
+    "/Users/patrickjakobsenjahn/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.0/microsoft.aspnetcore.app.ref.9.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

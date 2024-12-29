@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using AuthenticationService.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
+using SysChatBot.Shared;
 
 namespace AuthenticationService.Services;
 
@@ -11,8 +12,8 @@ public class AuthService: IAuthService
     private readonly string _jwtIssuer;
     public AuthService(Configurations config)
     {
-        _jwtKey =  config.Authentication.JwtKey ?? throw new ArgumentNullException(nameof(config.Authentication.JwtKey));
-        _jwtIssuer = config.Authentication.JwtIssuer ?? throw new ArgumentNullException(nameof(config.Authentication.JwtIssuer));
+        _jwtKey =  config?.Authentication?.JwtKey ?? throw new ArgumentNullException(nameof(config.Authentication.JwtKey));
+        _jwtIssuer = config?.Authentication?.JwtIssuer ?? throw new ArgumentNullException(nameof(config.Authentication.JwtIssuer));
     }
 
 

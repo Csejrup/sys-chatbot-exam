@@ -11,22 +11,22 @@ namespace AuthenticationService.Controllers;
 
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class AuthenticationController(IAuthService authService) : ControllerBase
 {
 
-    private readonly IAuthService _authService = authService;
+  private readonly IAuthService _authService = authService;
 
 
-    [HttpPost("authenticate")]
+  [HttpPost("authenticate")]
   public async Task<IActionResult> Authenticate([FromBody] AuthenticationRequest request)
   {
 
-      var token = _authService.GenerateToken();
-      return Ok(token);
+    var token = _authService.GenerateToken();
+    return Ok(token);
   }
-  
-  
-  
+
+
+
 
 }

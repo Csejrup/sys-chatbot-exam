@@ -7,17 +7,18 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["SysChatBot/SysChatBot.csproj", "SysChatBot/"]
-RUN dotnet restore "SysChatBot/SysChatBot.csproj"
+COPY ["SysChatBot.API/SysChatBot.API.csproj", "SysChatBot.API/"]
+COPY ["SysChatBot.Shared/SysChatBot.Shared.csproj", "SysChatBot.Shared/"]
+RUN dotnet restore "SysChatBot.API/SysChatBot.API.csproj"
 COPY . .
-WORKDIR "/src/SysChatBot"
-RUN dotnet build "SysChatBot.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/SysChatBot.API"
+RUN dotnet build "SysChatBot.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "SysChatBot.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "SysChatBot.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SysChatBot.dll"]
+ENTRYPOINT ["dotnet", "SysChatBot.API.dll"]

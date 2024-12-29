@@ -25,7 +25,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj": {
+                "projectPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -37,15 +41,28 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "all"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MMLib.SwaggerForOcelot": {
+              "target": "Package",
+              "version": "[8.3.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Ocelot": {
+              "target": "Package",
+              "version": "[23.4.2, )"
             }
           },
           "imports": [
@@ -59,6 +76,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.0, 9.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[9.0.0, 9.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.0, 9.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +98,76 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/patrickjakobsenjahn/.dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj",
+        "projectName": "SysChatBot.Shared",
+        "projectPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj",
+        "packagesPath": "/Users/patrickjakobsenjahn/.nuget/packages/",
+        "outputPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/patrickjakobsenjahn/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.0, 9.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.0, 9.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
