@@ -46,7 +46,7 @@ public class ChatController : ControllerBase
             // Validate request
             var userId = Request.Headers["userId"].ToString(); // Get the userId from the headers
 
-            if (string.IsNullOrEmpty(userId)) s
+            if (string.IsNullOrEmpty(userId))
             {
                 // TODO: Send log error event 
 
