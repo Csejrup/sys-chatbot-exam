@@ -22,10 +22,7 @@ public class AuthService : IAuthService
         _jwtIssuer = config?.Authentication?.JwtIssuer ?? throw new ArgumentNullException(nameof(config.Authentication.JwtIssuer));
     }
 
-
-
-
-
+    
     public async Task<string> SignupAsync(string email, string password)
     {
         // Check if user already exists

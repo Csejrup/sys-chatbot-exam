@@ -1,5 +1,6 @@
 using ChatService.Controllers.Requests;
 using ChatService.Controllers.Responses;
+using ChatService.Models;
 using ChatService.Services.ai;
 using ChatService.Services.conversations;
 using Microsoft.AspNetCore.Mvc;
@@ -53,6 +54,8 @@ public class ChatController : ControllerBase
                 return Unauthorized(new { message = "User ID not found in the header." });
             }
 
+
+
             if (string.IsNullOrEmpty(request.Message))
             {
                 // TODO: Send log error event 
@@ -68,13 +71,19 @@ public class ChatController : ControllerBase
             }
 
             // Retrieve conversation history (if applicable)
-            var history = await _conversationService.GetConversationHistoryAsync(userId, request.ConversationId);
+            List<ChatMessage>? history = new List<ChatMessage>();
+            if (!string.IsNullOrEmpty(request.ConversationId))
+            {
+                history = await _conversationService.GetConversationHistoryAsync(Guid.Parse(userId), Guid.Parse(request.ConversationId));
+            }
 
             // Forward user query and history to AI Service
             var aiResponse = await _aiService.GetAIResponseAsync(request.Message, history);
 
-            // Store user message and AI response in conversation history
-            await _conversationService.StoreMessageAsync(userId, request.ConversationId, request.Message, aiResponse);
+            // Store user message and AI response in conversation
+            _ = _conversationService.StoreMessageAsync(Guid.Parse(userId),
+                string.IsNullOrEmpty(request.ConversationId) ? null : Guid.Parse(request.ConversationId),
+                request.Message, aiResponse);
 
 
             // TODO: Send log success event 

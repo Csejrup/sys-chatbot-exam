@@ -14,12 +14,18 @@ services:
       context: ./SysChatBot
       dockerfile: AuthenticationService/Dockerfile
     environment:
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=auth_db;Username=mcp_admin;Password=super_secret_pass_1201!
+      - ConnectionStrings__DefaultConnection=Host=auth_db;Database=auth_db;Username=mcp_admin;Password=super_secret_pass_1201!
+    depends_on:
+      - auth_db
 
   chatservice:
     build:
       context: ./SysChatBot
       dockerfile: ChatService/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=chat_db;Database=chat_db;Username=mcp_admin;Password=super_secret_pass_1201!
+    depends_on:
+      - chat_db
 
   # logchatservice:
   #   build:
@@ -34,17 +40,28 @@ services:
   #   ports:
   #     - "5003:50051"
 
-  postgres:
+  auth_db:
     image: postgres:15-alpine # lightweight version of PostgreSQL
-    container_name: postgres
+    container_name: auth_db
     ports:
-      - "5432:5432" # default PostgreSQL port
+      - "5433:5433"
     environment:
       POSTGRES_USER: mcp_admin
       POSTGRES_PASSWORD: super_secret_pass_1201!
       POSTGRES_DB: auth_db # Initial database
+
+  chat_db:
+    image: postgres:15-alpine # lightweight version of PostgreSQL
+    container_name: chat_db
+    ports:
+      - "5434:5434"
+    environment:
+      POSTGRES_USER: mcp_admin
+      POSTGRES_PASSWORD: super_secret_pass_1201!
+      POSTGRES_DB: chat_db # Initial database
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - chat_db_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+  auth_db_data:
+  chat_db_data:

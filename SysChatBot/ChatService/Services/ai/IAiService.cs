@@ -1,3 +1,4 @@
+using ChatService.Models;
 using SysChatBot.Shared.Models;
 
 namespace ChatService.Services.ai;

@@ -1,20 +1,18 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using SysChatBot.Shared.Models.enums;
 
-namespace SysChatBot.Shared.Models;
+namespace ChatService.Models;
 
 
 public class ChatMessage
 {
     [Key]
-    public int MessageId { get; set; } 
-
+    public Guid MessageId { get; set; } 
+    
     [Required]
-    public string ConversationId { get; set; } 
-
-    [Required]
-    public string UserId { get; set; }
-
+    public Guid ConversationId { get; set; } 
+    
     [Required]
     public MessageRole Role { get; set; } 
 
@@ -23,4 +21,8 @@ public class ChatMessage
 
     [Required]
     public DateTime Timestamp { get; set; } 
+    
+    
+    [ForeignKey(nameof(ConversationId))]
+    public Conversation Conversation { get; set; } 
 }

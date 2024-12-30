@@ -15,14 +15,13 @@ builder.Services.AddEndpointsApiExplorer();
 
 var config = builder.Configuration.GetSection("Configurations").Get<Configurations>();
 
+// Repos
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Services
 builder.Services.AddSingleton<Configurations>(config ?? new Configurations());
-
 builder.Services.AddScoped<IAuthService, AuthService>();
 
-// Repos
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddDbContext<AuthDbContext>(options =>
 {
