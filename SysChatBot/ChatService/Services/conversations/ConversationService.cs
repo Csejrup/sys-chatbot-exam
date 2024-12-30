@@ -9,7 +9,7 @@ public class ConversationService : IConversationService
         throw new NotImplementedException();
     }
 
-    public Task<string> StoreMessageAsync(string userId, string? conversationId, string userMessage, string aiResponse)
+    public Task StoreMessageAsync(string userId, string? conversationId, string userMessage, string aiResponse)
     {
         throw new NotImplementedException();
     }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SysChatBot.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2328d34d5348456b5461f3b8d39f806f667b7f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1dc8e4d3f5be480f2cab057d3161821f3c70dbc1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SysChatBot.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SysChatBot.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,6 +13,8 @@ services:
     build:
       context: ./SysChatBot
       dockerfile: AuthenticationService/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=auth_db;Username=mcp_admin;Password=super_secret_pass_1201!
 
   chatservice:
     build:
@@ -31,3 +33,18 @@ services:
   #     context: ./gRPCService
   #   ports:
   #     - "5003:50051"
+
+  postgres:
+    image: postgres:15-alpine # lightweight version of PostgreSQL
+    container_name: postgres
+    ports:
+      - "5432:5432" # default PostgreSQL port
+    environment:
+      POSTGRES_USER: mcp_admin
+      POSTGRES_PASSWORD: super_secret_pass_1201!
+      POSTGRES_DB: auth_db # Initial database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -59,7 +59,6 @@ public class ChatController : ControllerBase
 
                 return Ok(new ChatResponse()
                 {
-                    ConversationId = request.ConversationId,
                     Content = "You did not provide any message.",
                     Timestamp = DateTime.UtcNow,
                     Role = MessageRole.AI,
@@ -75,7 +74,7 @@ public class ChatController : ControllerBase
             var aiResponse = await _aiService.GetAIResponseAsync(request.Message, history);
 
             // Store user message and AI response in conversation history
-            var conversationId = await _conversationService.StoreMessageAsync(userId, request.ConversationId, request.Message, aiResponse);
+            await _conversationService.StoreMessageAsync(userId, request.ConversationId, request.Message, aiResponse);
 
 
             // TODO: Send log success event 
@@ -83,7 +82,6 @@ public class ChatController : ControllerBase
             // Return response
             return Ok(new ChatResponse()
             {
-                ConversationId = conversationId,
                 Content = aiResponse,
                 Timestamp = DateTime.UtcNow,
                 Role = MessageRole.AI,

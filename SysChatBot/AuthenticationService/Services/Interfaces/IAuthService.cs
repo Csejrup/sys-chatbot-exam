@@ -2,5 +2,7 @@ namespace AuthenticationService.Services.Interfaces;
 
 public interface IAuthService
 {
-    public string GenerateToken(Guid userId);
+    
+    Task<string> SignupAsync(string email, string password);
+    Task<string> LoginAsync(string email, string password);
 }

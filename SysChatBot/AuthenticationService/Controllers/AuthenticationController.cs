@@ -22,11 +22,45 @@ public class AuthenticationController(IAuthService authService) : ControllerBase
   public async Task<IActionResult> Authenticate([FromBody] AuthenticationRequest request)
   {
 
-    // TODO: Validate user via db and get UserID 
-    var userId = Guid.NewGuid();
-    var token = _authService.GenerateToken(userId);
-    return Ok(token);
+    if (string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password))
+    {
+      return BadRequest("Invalid data.");
+    }
+
+    try
+    {
+      var token = await _authService.LoginAsync(request.Email, request.Password);
+      return Ok(new { Token = token });
+    }
+    catch (Exception ex)
+    {
+      return Unauthorized(ex.Message);
+    }
+
   }
+
+  [HttpPost("signup")]
+  public async Task<IActionResult> Signup([FromBody] SignupRequest request)
+  {
+    if (string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password))
+    {
+      return BadRequest("Invalid data.");
+    }
+
+    try
+    {
+      var token = await _authService.SignupAsync(request.Email, request.Password);
+      return Ok(new
+      {
+        Token = token
+      });
+    }
+    catch (Exception ex)
+    {
+      return BadRequest(ex.Message);
+    }
+  }
+
 
 
 
