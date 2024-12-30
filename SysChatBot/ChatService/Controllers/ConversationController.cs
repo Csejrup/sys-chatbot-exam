@@ -46,7 +46,7 @@ public class ConversationController : ControllerBase
             return Unauthorized(new { message = "User ID not found in the header." });
         }
 
-        var conversations = _conversationService.GetAllConversationsByUserId(Guid.Parse(userId)); 
+        var conversations = await _conversationService.GetAllConversationsByUserId(Guid.Parse(userId)); 
         return Ok(conversations);
     }
 }
