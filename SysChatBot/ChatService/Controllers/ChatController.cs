@@ -53,9 +53,7 @@ public class ChatController : ControllerBase
 
                 return Unauthorized(new { message = "User ID not found in the header." });
             }
-
-
-
+            
             if (string.IsNullOrEmpty(request.Message))
             {
                 // TODO: Send log error event 

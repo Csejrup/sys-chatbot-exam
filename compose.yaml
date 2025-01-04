@@ -34,11 +34,11 @@ services:
   #   ports:
   #     - "5002:80"
 
-  # grpcservice:
-  #   build:
-  #     context: ./gRPCService
-  #   ports:
-  #     - "5003:50051"
+  grpcservice:
+    build:
+      context: ./gRPCService
+    ports:
+      - "50051:50051"
 
   auth_db:
     image: postgres:15-alpine # lightweight version of PostgreSQL

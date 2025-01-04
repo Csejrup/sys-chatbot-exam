@@ -17,7 +17,7 @@ builder.Services.AddScoped<IConversationRepository, ConversationRepository>();
 builder.Services.AddScoped<IAiService, AiService>();
 builder.Services.AddScoped<IConversationService, ConversationService>();
 builder.Services.AddSingleton<IAiService>(provider =>
-    new AiService("http://localhost:50051"));
+    new AiService("http://grpcservice:50051"));
 
 
 builder.Services.AddControllers();
