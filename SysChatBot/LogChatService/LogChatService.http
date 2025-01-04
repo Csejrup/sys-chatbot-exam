@@ -1,0 +1,6 @@
+@LogChatService_HostAddress = http://localhost:5095
+
+GET {{LogChatService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

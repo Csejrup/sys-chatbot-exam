@@ -16,6 +16,8 @@ builder.Services.AddScoped<IConversationRepository, ConversationRepository>();
 // Services
 builder.Services.AddScoped<IAiService, AiService>();
 builder.Services.AddScoped<IConversationService, ConversationService>();
+builder.Services.AddSingleton<IAiService>(provider =>
+    new AiService("http://localhost:50051"));
 
 
 builder.Services.AddControllers();

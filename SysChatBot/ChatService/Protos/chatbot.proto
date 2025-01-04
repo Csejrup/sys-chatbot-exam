@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package chatbot;
+
+// The Chatbot service definition
+service ChatbotService {
+  // Sends a message and gets a response
+  rpc GetResponse (ChatbotRequest) returns (ChatbotResponse);
+}
+
+// The request message
+message ChatbotRequest {
+  string message = 1;
+}
+
+// The response message
+message ChatbotResponse {
+  string message = 1;
+}
