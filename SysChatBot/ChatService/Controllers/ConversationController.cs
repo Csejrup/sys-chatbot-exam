@@ -23,7 +23,6 @@ public class ConversationController : ControllerBase
 
         if (string.IsNullOrEmpty(userId))
         {
-            // TODO: Send log error event 
 
             return Unauthorized(new { message = "User ID not found in the header." });
         }
@@ -41,7 +40,6 @@ public class ConversationController : ControllerBase
 
         if (string.IsNullOrEmpty(userId))
         {
-            // TODO: Send log error event 
 
             return Unauthorized(new { message = "User ID not found in the header." });
         }

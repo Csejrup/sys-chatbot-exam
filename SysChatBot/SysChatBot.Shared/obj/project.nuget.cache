@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "+q/o8Ck7aIA=",
+  "dgSpecHash": "OwOHQP5oiC4=",
   "success": true,
   "projectFilePath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/patrickjakobsenjahn/.nuget/packages/easynetq/7.8.0/easynetq.7.8.0.nupkg.sha512",
+    "/Users/patrickjakobsenjahn/.nuget/packages/rabbitmq.client/6.8.1/rabbitmq.client.6.8.1.nupkg.sha512",
+    "/Users/patrickjakobsenjahn/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/Users/patrickjakobsenjahn/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

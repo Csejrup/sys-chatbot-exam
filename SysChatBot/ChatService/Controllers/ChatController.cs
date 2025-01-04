@@ -3,7 +3,10 @@ using ChatService.Controllers.Responses;
 using ChatService.Models;
 using ChatService.Services.ai;
 using ChatService.Services.conversations;
+using ChatService.Services.logs;
+using LogChatService.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
+using SysChatBot.Shared.Events;
 using SysChatBot.Shared.Models;
 using SysChatBot.Shared.Models.enums;
 
@@ -17,11 +20,13 @@ public class ChatController : ControllerBase
 
     private readonly IConversationService _conversationService;
     private readonly IAiService _aiService;
+    private readonly ILogService _logService;
 
-    public ChatController(IConversationService conversationService, IAiService aiService)
+    public ChatController(IConversationService conversationService, IAiService aiService, ILogService logService)
     {
         _conversationService = conversationService ?? throw new ArgumentNullException(nameof(conversationService));
         _aiService = aiService ?? throw new ArgumentNullException(nameof(aiService));
+        _logService = logService ?? throw new ArgumentNullException(nameof(logService));
     }
 
 
@@ -41,23 +46,29 @@ public class ChatController : ControllerBase
     [HttpPost("chat")]
     public async Task<IActionResult> SendMessage([FromBody] ChatRequest request)
     {
+        var userId = Request.Headers["userId"].ToString(); // Get the userId from the headers
 
         try
         {
             // Validate request
-            var userId = Request.Headers["userId"].ToString(); // Get the userId from the headers
 
             if (string.IsNullOrEmpty(userId))
             {
-                // TODO: Send log error event 
-
+                
                 return Unauthorized(new { message = "User ID not found in the header." });
             }
             
             if (string.IsNullOrEmpty(request.Message))
             {
-                // TODO: Send log error event 
-
+                _logService.AddChatLogAsync(new ChatLogEvent()
+                {
+                    Timestamp = DateTime.UtcNow,
+                    ConversationId = !string.IsNullOrEmpty(request.ConversationId) ? Guid.Parse(request.ConversationId) : null,
+                    Status = LogStatus.Error,
+                    UserId = Guid.Parse(userId),
+                    ErrorMessage = "No message provided.",
+                    
+                });
                 return Ok(new ChatResponse()
                 {
                     Content = "You did not provide any message.",
@@ -84,7 +95,15 @@ public class ChatController : ControllerBase
                 request.Message, aiResponse);
 
 
-            // TODO: Send log success event 
+            _logService.AddChatLogAsync(new ChatLogEvent()
+            {
+                Timestamp = DateTime.UtcNow,
+                ConversationId = !string.IsNullOrEmpty(request.ConversationId) ? Guid.Parse(request.ConversationId) : null,
+                Status = LogStatus.Error,
+                UserId = Guid.Parse(userId),
+                UserMessage = request.Message,
+                AiResponse = aiResponse
+            });
 
             // Return response
             return Ok(new ChatResponse()
@@ -99,7 +118,15 @@ public class ChatController : ControllerBase
         }
         catch (Exception e)
         {
-            // TODO: Send log error event 
+            _logService.AddChatLogAsync(new ChatLogEvent()
+            {
+                Timestamp = DateTime.UtcNow,
+                ConversationId = !string.IsNullOrEmpty(request.ConversationId) ? Guid.Parse(request.ConversationId) : null,
+                Status = LogStatus.Error,
+                UserId = Guid.Parse(userId),
+                ErrorMessage = e.Message
+                    
+            });
 
             return Ok(new ChatResponse()
             {

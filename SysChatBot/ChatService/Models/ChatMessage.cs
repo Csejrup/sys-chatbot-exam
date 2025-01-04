@@ -26,3 +26,4 @@ public class ChatMessage
     [ForeignKey(nameof(ConversationId))]
     public Conversation Conversation { get; set; } 
 }
+

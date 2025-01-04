@@ -19,6 +19,9 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0" />
        
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.2" />
+
+        <PackageReference Include="EasyNetQ" Version="8.0.0-beta98" />
+        <PackageReference Include="EasyNetQ.Serialization.NewtonsoftJson" Version="7.8.0" />
     </ItemGroup>
 
     <ItemGroup>

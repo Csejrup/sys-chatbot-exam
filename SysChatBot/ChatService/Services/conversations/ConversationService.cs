@@ -1,6 +1,7 @@
 using ChatService.DBContext;
 using ChatService.Models;
 using ChatService.Repositories;
+using ChatService.Services.logs;
 using Microsoft.EntityFrameworkCore;
 using SysChatBot.Shared.Models;
 using SysChatBot.Shared.Models.enums;
@@ -9,10 +10,12 @@ namespace ChatService.Services.conversations;
 public class ConversationService : IConversationService
 {
     private readonly IConversationRepository _conversationRepository;
+    private readonly ILogService _logService;
 
-    public ConversationService(IConversationRepository conversationRepository)
+    public ConversationService(IConversationRepository conversationRepository, ILogService logService)
     {
         _conversationRepository = conversationRepository ?? throw new ArgumentNullException(nameof(conversationRepository));
+        _logService = logService ?? throw new ArgumentNullException(nameof(logService));
     }
 
     public async Task<List<ChatMessage>?> GetConversationHistoryAsync(Guid userId, Guid? conversationId)
