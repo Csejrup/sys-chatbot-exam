@@ -4,6 +4,7 @@ using LogChatService.Repositories;
 using LogChatService.Services.Logs;
 using Microsoft.EntityFrameworkCore;
 using SysChatBot.Shared;
+using SysChatBot.Shared.Messaging;
 
 var builder = WebApplication.CreateBuilder(args);
 

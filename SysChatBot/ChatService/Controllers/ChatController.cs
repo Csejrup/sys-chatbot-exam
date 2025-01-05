@@ -1,21 +1,21 @@
 using ChatService.Controllers.Requests;
 using ChatService.Controllers.Responses;
 using ChatService.Models;
+using ChatService.Models.enums;
 using ChatService.Services.ai;
 using ChatService.Services.conversations;
 using ChatService.Services.logs;
-using LogChatService.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 using SysChatBot.Shared.Events;
-using SysChatBot.Shared.Models;
-using SysChatBot.Shared.Models.enums;
+using SysChatBot.Shared.Models.Enums;
 
 namespace ChatService.Controllers;
 
 
 [ApiController]
 [Route("api/[controller]")]
-public class ChatController : ControllerBase
+public class ChatController
+    : ControllerBase
 {
 
     private readonly IConversationService _conversationService;
@@ -32,7 +32,7 @@ public class ChatController : ControllerBase
 
 
 
-  
+
 
 
     [HttpPost("chat")]
@@ -43,13 +43,12 @@ public class ChatController : ControllerBase
         try
         {
             // Validate request
-
             if (string.IsNullOrEmpty(userId))
             {
-                
+
                 return Unauthorized(new { message = "User ID not found in the header." });
             }
-            
+
             if (string.IsNullOrEmpty(request.Message))
             {
                 _logService.AddChatLogAsync(new ChatLogEvent()
@@ -59,7 +58,7 @@ public class ChatController : ControllerBase
                     Status = LogStatus.Error,
                     UserId = Guid.Parse(userId),
                     ErrorMessage = "No message provided.",
-                    
+
                 });
                 return Ok(new ChatResponse()
                 {
@@ -117,12 +116,11 @@ public class ChatController : ControllerBase
                 Status = LogStatus.Error,
                 UserId = Guid.Parse(userId),
                 ErrorMessage = e.Message
-                    
+
             });
 
             return Ok(new ChatResponse()
             {
-
                 Timestamp = DateTime.UtcNow,
                 Content = "Sorry, something went wrong. Please try again later.",
                 Role = MessageRole.AI,
@@ -133,8 +131,4 @@ public class ChatController : ControllerBase
         }
 
     }
-
-
-
-
 }

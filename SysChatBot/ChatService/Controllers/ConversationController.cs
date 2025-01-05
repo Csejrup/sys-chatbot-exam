@@ -5,15 +5,10 @@ namespace ChatService.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ConversationController : ControllerBase
+public class ConversationController(IConversationService conversationService) : ControllerBase
 {
 
-    private readonly IConversationService _conversationService;
-
-    public ConversationController(IConversationService conversationService)
-    {
-        _conversationService = conversationService ?? throw new ArgumentNullException(nameof(conversationService));
-    }
+    private readonly IConversationService _conversationService = conversationService ?? throw new ArgumentNullException(nameof(conversationService));
 
     [HttpGet("{conversationId}")]
     public async Task<IActionResult> GetConversationById(string conversationId)

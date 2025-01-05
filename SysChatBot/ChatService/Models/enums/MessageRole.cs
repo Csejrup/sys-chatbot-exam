@@ -1,4 +1,4 @@
-namespace SysChatBot.Shared.Models.enums;
+namespace ChatService.Models.enums;
 
 public enum MessageRole
 {

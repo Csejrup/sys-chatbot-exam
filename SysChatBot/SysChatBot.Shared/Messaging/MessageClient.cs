@@ -1,23 +1,16 @@
 using EasyNetQ;
 
-namespace SysChatBot.Shared;
+namespace SysChatBot.Shared.Messaging;
 
-public class MessageClient : IMessageClient
+public class MessageClient(IBus bus) : IMessageClient
 {
-    private readonly IBus _bus;
-
-    public MessageClient(IBus bus)
-    {
-        _bus = bus;
-    }
-
     public virtual void Send<T>(T message, string topic)
     {
-        _bus.PubSub.Publish(message, topic);
+        bus.PubSub.Publish(message, topic);
     }
 
     public void Listen<T>(Action<T> handler, string topic)
     {
-        _bus.PubSub.Subscribe(topic, handler);
+        bus.PubSub.Subscribe(topic, handler);
     }
 }

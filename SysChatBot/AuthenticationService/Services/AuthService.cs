@@ -6,6 +6,7 @@ using AuthenticationService.Repositories;
 using AuthenticationService.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using SysChatBot.Shared;
+using SysChatBot.Shared.config;
 
 namespace AuthenticationService.Services;
 

@@ -1,4 +1,4 @@
-namespace LogChatService.Models.Enums;
+namespace SysChatBot.Shared.Models.Enums;
 
 public enum LogStatus
 {

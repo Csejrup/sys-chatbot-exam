@@ -3,16 +3,10 @@ using SysChatBot.Shared.Events;
 
 namespace ChatService.Services.logs;
 
-public class LogService : ILogService
+public class LogService(IMessageClient messageClient) : ILogService
 {
-    private readonly IMessageClient _messageClient;
-    public LogService( IMessageClient messageClient)
-    {
-        _messageClient = messageClient;
-        
-    }
     public void AddChatLogAsync(ChatLogEvent chatLogEvent)
     {
-        _messageClient.Send(chatLogEvent, "CreateChatLog");
+        messageClient.Send(chatLogEvent, "CreateChatLog");
     }
 }

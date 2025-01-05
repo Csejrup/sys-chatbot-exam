@@ -1,10 +1,9 @@
-using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using SysChatBot.Shared;
+using SysChatBot.Shared.config;
 
 var builder = WebApplication.CreateBuilder(args);
 //load config
@@ -43,7 +42,6 @@ builder.Configuration.AddJsonFile("ocelot.json");
 
 // Add Ocelot services
 builder.Services.AddOcelot();
-
 
 var app = builder.Build();
 

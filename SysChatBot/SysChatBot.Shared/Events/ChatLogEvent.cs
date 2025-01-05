@@ -1,4 +1,4 @@
-using LogChatService.Models.Enums;
+using SysChatBot.Shared.Models.Enums;
 
 namespace SysChatBot.Shared.Events;
 

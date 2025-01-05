@@ -4,14 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChatService.Repositories;
 
-public class ConversationRepository : IConversationRepository
+public class ConversationRepository(ChatDbContext context) : IConversationRepository
 {
-    private readonly ChatDbContext _context;
-
-    public ConversationRepository(ChatDbContext context)
-    {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
-    }
+    private readonly ChatDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
 
     public async Task<Conversation?> GetConversationByIdAsync(Guid? conversationId)
     {

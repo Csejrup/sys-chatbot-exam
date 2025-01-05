@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using SysChatBot.Shared.Models.enums;
+using ChatService.Models.enums;
 
 namespace ChatService.Models;
 
