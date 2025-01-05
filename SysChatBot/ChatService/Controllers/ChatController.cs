@@ -28,13 +28,6 @@ public class ChatController
         _aiService = aiService ?? throw new ArgumentNullException(nameof(aiService));
         _logService = logService ?? throw new ArgumentNullException(nameof(logService));
     }
-
-
-
-
-
-
-
     [HttpPost("chat")]
     public async Task<IActionResult> SendMessage([FromBody] ChatRequest request)
     {
