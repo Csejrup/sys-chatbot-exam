@@ -6,6 +6,7 @@ using ChatService.Services.logs;
 using EasyNetQ;
 using Microsoft.EntityFrameworkCore;
 using SysChatBot.Shared;
+using SysChatBot.Shared.Messaging;
 
 var builder = WebApplication.CreateBuilder(args);
 

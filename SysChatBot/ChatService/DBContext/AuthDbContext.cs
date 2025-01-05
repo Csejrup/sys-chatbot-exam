@@ -3,13 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChatService.DBContext;
 
-public class ChatDbContext : DbContext
+public class ChatDbContext(DbContextOptions<ChatDbContext> options) : DbContext(options)
 {
-    public ChatDbContext(DbContextOptions<ChatDbContext> options)
-        : base(options)
-    {
-    }
-
     public DbSet<ChatMessage> ChatMessages { get; set; }
     public DbSet<Conversation> Conversations { get; set; }
 

@@ -5,6 +5,7 @@ using AuthenticationService.Services;
 using AuthenticationService.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using SysChatBot.Shared;
+using SysChatBot.Shared.config;
 
 var builder = WebApplication.CreateBuilder(args);
 

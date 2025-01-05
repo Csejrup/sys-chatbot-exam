@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using LogChatService.Models.Enums;
+using SysChatBot.Shared.Models.Enums;
 
 namespace LogChatService.Models;
 

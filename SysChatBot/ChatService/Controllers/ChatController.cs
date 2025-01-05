@@ -1,48 +1,33 @@
 using ChatService.Controllers.Requests;
 using ChatService.Controllers.Responses;
 using ChatService.Models;
+using ChatService.Models.enums;
 using ChatService.Services.ai;
 using ChatService.Services.conversations;
 using ChatService.Services.logs;
-using LogChatService.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 using SysChatBot.Shared.Events;
-using SysChatBot.Shared.Models;
-using SysChatBot.Shared.Models.enums;
+using SysChatBot.Shared.Models.Enums;
 
 namespace ChatService.Controllers;
 
 
 [ApiController]
 [Route("api/[controller]")]
-public class ChatController : ControllerBase
+public class ChatController(IConversationService conversationService, IAiService aiService, ILogService logService)
+    : ControllerBase
 {
-
-    private readonly IConversationService _conversationService;
-    private readonly IAiService _aiService;
-    private readonly ILogService _logService;
-
-    public ChatController(IConversationService conversationService, IAiService aiService, ILogService logService)
-    {
-        _conversationService = conversationService ?? throw new ArgumentNullException(nameof(conversationService));
-        _aiService = aiService ?? throw new ArgumentNullException(nameof(aiService));
-        _logService = logService ?? throw new ArgumentNullException(nameof(logService));
-    }
-
-
-
-
+    private readonly IConversationService _conversationService = conversationService ?? throw new ArgumentNullException(nameof(conversationService));
+    private readonly IAiService _aiService = aiService ?? throw new ArgumentNullException(nameof(aiService));
+    private readonly ILogService _logService = logService ?? throw new ArgumentNullException(nameof(logService));
+    
     [HttpGet("test")]
-    public async Task<IActionResult> Test()
+    public Task<IActionResult> Test()
     {
         var userId = Request.Headers["userId"].ToString(); // Get the userId from the headers
 
-        return Ok("WELCOME TO THE CHAT. Your userId is: " + userId);
+        return Task.FromResult<IActionResult>(Ok("WELCOME TO THE CHAT. Your userId is: " + userId));
     }
-
-
-
-
     [HttpPost("chat")]
     public async Task<IActionResult> SendMessage([FromBody] ChatRequest request)
     {
@@ -51,7 +36,6 @@ public class ChatController : ControllerBase
         try
         {
             // Validate request
-
             if (string.IsNullOrEmpty(userId))
             {
                 
@@ -130,7 +114,6 @@ public class ChatController : ControllerBase
 
             return Ok(new ChatResponse()
             {
-
                 Timestamp = DateTime.UtcNow,
                 Content = "Sorry, something went wrong. Please try again later.",
                 Role = MessageRole.AI,
@@ -141,8 +124,4 @@ public class ChatController : ControllerBase
         }
 
     }
-
-
-
-
 }

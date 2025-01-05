@@ -1,4 +1,4 @@
-using SysChatBot.Shared.Models.enums;
+using ChatService.Models.enums;
 
 namespace ChatService.Controllers.Responses;
 
