@@ -1,8 +1,8 @@
 using ChatService.Models;
+using ChatService.Models.enums;
 using ChatService.Repositories;
 using ChatService.Services.conversations;
 using ChatService.Services.logs;
-using SysChatBot.Shared.Models.enums;
 
 namespace ChatService.ServiceTests;
 using System;
