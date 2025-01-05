@@ -32,7 +32,7 @@ services:
       context: ./SysChatBot
       dockerfile: ChatService/Dockerfile
     environment:
-      - ConnectionStrings__DefaultConnection=Host=log_db;Database=chat_db;Username=mcp_admin;Password=super_secret_pass_1201!
+      - ConnectionStrings__DefaultConnection=Host=log_db;Database=log_db;Username=mcp_admin;Password=super_secret_pass_1201!
     depends_on:
       - log_db
 
@@ -74,7 +74,7 @@ services:
     image: postgres:15-alpine # lightweight version of PostgreSQL
     container_name: log_db
     ports:
-      - "5434:5434"
+      - "5435:5435"
     environment:
       POSTGRES_USER: mcp_admin
       POSTGRES_PASSWORD: super_secret_pass_1201!
@@ -85,3 +85,4 @@ services:
 volumes:
   auth_db_data:
   chat_db_data:
+  log_db_data:

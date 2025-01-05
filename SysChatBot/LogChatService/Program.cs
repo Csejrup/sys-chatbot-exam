@@ -20,7 +20,7 @@ builder.Services.AddDbContext<LogDbContext>(options =>
 });
 
 // Service bus
-builder.Services.AddEasyNetQ("host=rabbitmq");
+builder.Services.AddEasyNetQ("host=rabbitmq;username=admin;password=securepassword");
 builder.Services.AddScoped<IMessageClient, MessageClient>();
 
 // Repositories

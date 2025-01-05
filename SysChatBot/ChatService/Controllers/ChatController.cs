@@ -32,15 +32,7 @@ public class ChatController : ControllerBase
 
 
 
-    [HttpGet("test")]
-    public async Task<IActionResult> Test()
-    {
-        var userId = Request.Headers["userId"].ToString(); // Get the userId from the headers
-
-        return Ok("WELCOME TO THE CHAT. Your userId is: " + userId);
-    }
-
-
+  
 
 
     [HttpPost("chat")]

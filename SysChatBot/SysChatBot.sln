@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService", "ChatService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogChatService", "LogChatService\LogChatService.csproj", "{F8617185-C544-4E62-97FD-89BBA6282974}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{44C2CB86-6C48-4EB5-AEB2-35BDB9A07E50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService.UnitTests", "ChatService.UnitTests\ChatService.UnitTests.csproj", "{32C575D7-412B-4B2E-B759-E98FD6B2D2CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService.ServiceTests", "ChatService.ServiceTests\ChatService.ServiceTests.csproj", "{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,5 +47,17 @@ Global
 		{F8617185-C544-4E62-97FD-89BBA6282974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8617185-C544-4E62-97FD-89BBA6282974}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8617185-C544-4E62-97FD-89BBA6282974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32C575D7-412B-4B2E-B759-E98FD6B2D2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32C575D7-412B-4B2E-B759-E98FD6B2D2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32C575D7-412B-4B2E-B759-E98FD6B2D2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32C575D7-412B-4B2E-B759-E98FD6B2D2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{32C575D7-412B-4B2E-B759-E98FD6B2D2CD} = {44C2CB86-6C48-4EB5-AEB2-35BDB9A07E50}
+		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E} = {44C2CB86-6C48-4EB5-AEB2-35BDB9A07E50}
 	EndGlobalSection
 EndGlobal

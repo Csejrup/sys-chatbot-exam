@@ -20,7 +20,7 @@ builder.Services.AddDbContext<ChatDbContext>(options =>
 });
 
 // Service bus
-builder.Services.AddEasyNetQ("host=rabbitmq");
+builder.Services.AddEasyNetQ("host=rabbitmq;username=admin;password=securepassword");
 builder.Services.AddScoped<IMessageClient, MessageClient>();
 
 // Repos
@@ -50,7 +50,7 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
- 
+
 }
 
 app.UseHttpsRedirection();
