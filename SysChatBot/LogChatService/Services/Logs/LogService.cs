@@ -2,9 +2,10 @@ using LogChatService.Models;
 using LogChatService.Repositories;
 using SysChatBot.Shared;
 using SysChatBot.Shared.Events;
-using Polly.Retry;
-using Shared.Events.Saga;
 using Shared.Utils;
+using Polly.Retry;
+
+
 
 namespace LogChatService.Services.Logs;
 
@@ -48,11 +49,10 @@ public class LogService : ILogService
             });
 
            
-            var successEvent = new LogEvent
+            var successEvent = new ChatLogEvent
             {
                 UserId = logEvent.UserId,
                 ConversationId = logEvent.ConversationId,
-                EventType = "ChatLogCreated",
                 Timestamp = DateTime.UtcNow
             };
 
@@ -64,13 +64,12 @@ public class LogService : ILogService
         catch (Exception ex)
         {
             
-            var failureEvent = new LogEvent
+            var failureEvent = new ChatLogEvent
             {
                 UserId = logEvent.UserId,
                 ConversationId = logEvent.ConversationId,
-                EventType = "ChatLogFailed",
                 Timestamp = DateTime.UtcNow,
-                Reason = ex.Message
+                ErrorMessage = ex.Message
             };
 
             await _retryPolicy.ExecuteAsync(async () =>
@@ -94,7 +93,7 @@ public class LogService : ILogService
     {
         return await _retryPolicy.ExecuteAsync(async () =>
         {
-            return await Task.Run(() => _logRepository.GetTopNErrorMessagesAsync(numberOfMessages));
+            return await Task.Run(() => _logRepository.GetTopNErrorMessages(numberOfMessages));
         });
     }
 
