@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService.UnitTests", "Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService.ServiceTests", "ChatService.ServiceTests\ChatService.ServiceTests.csproj", "{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService.E2ETests", "ChatService.E2ETests\ChatService.E2ETests.csproj", "{9B483A44-D6D7-49F7-AD91-3FE14E2B20B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,9 +57,14 @@ Global
 		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B483A44-D6D7-49F7-AD91-3FE14E2B20B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B483A44-D6D7-49F7-AD91-3FE14E2B20B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B483A44-D6D7-49F7-AD91-3FE14E2B20B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B483A44-D6D7-49F7-AD91-3FE14E2B20B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{32C575D7-412B-4B2E-B759-E98FD6B2D2CD} = {44C2CB86-6C48-4EB5-AEB2-35BDB9A07E50}
 		{CC4F7FF1-0276-4948-8CE8-1C415A891C7E} = {44C2CB86-6C48-4EB5-AEB2-35BDB9A07E50}
+		{9B483A44-D6D7-49F7-AD91-3FE14E2B20B6} = {44C2CB86-6C48-4EB5-AEB2-35BDB9A07E50}
 	EndGlobalSection
 EndGlobal
