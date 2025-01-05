@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["ChatService/ChatService.csproj", "ChatService/"]
+COPY ["SysChatBot.Shared/SysChatBot.Shared.csproj", "SysChatBot.Shared/"]
 RUN dotnet restore "ChatService/ChatService.csproj"
 COPY . .
 WORKDIR "/src/ChatService"

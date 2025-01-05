@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: log-db-pvc
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: log-db
+  namespace: default
+spec:
+  serviceName: "log-db"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-db
+  template:
+    metadata:
+      labels:
+        app: log-db
+    spec:
+      containers:
+      - name: log-db
+        image: postgres:15-alpine
+        ports:
+        - containerPort: 5435
+        env:
+         - name: POSTGRES_USER
+           value: "mcp_admin"
+         - name: POSTGRES_PASSWORD
+           value: "super_secret_pass_1201!"
+         - name: POSTGRES_DB
+           value: "log_db"
+        volumeMounts:
+        - name: log-db-data
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: log-db-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi

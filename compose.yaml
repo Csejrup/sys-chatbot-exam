@@ -1,23 +1,88 @@
-﻿version: '3.4'
+﻿version: "3.4"
 
 services:
   apigateway:
     build:
-      context: ./SysChatBot.API
+      context: ./SysChatBot
+      dockerfile: SysChatBot.API/Dockerfile
+
     ports:
-      - "5000:80"
+      - "5001:8080"
+
+  authenticationservice:
+    build:
+      context: ./SysChatBot
+      dockerfile: AuthenticationService/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=auth_db;Database=auth_db;Username=mcp_admin;Password=super_secret_pass_1201!
+    depends_on:
+      - auth_db
+
   chatservice:
     build:
-      context: ./ChatService
-    ports:
-      - "5001:80"
+      context: ./SysChatBot
+      dockerfile: ChatService/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=chat_db;Database=chat_db;Username=mcp_admin;Password=super_secret_pass_1201!
+    depends_on:
+      - chat_db
+
   logchatservice:
     build:
-      context: ./LogChatService
-    ports:
-      - "5002:80"
+      context: ./SysChatBot
+      dockerfile: ChatService/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=log_db;Database=log_db;Username=mcp_admin;Password=super_secret_pass_1201!
+    depends_on:
+      - log_db
+
   grpcservice:
     build:
       context: ./gRPCService
     ports:
-      - "5003:50051"
+      - "50051:50051"
+
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672" # RabbitMQ message broker port
+      - "15672:15672" # RabbitMQ management UI
+
+  auth_db:
+    image: postgres:15-alpine # lightweight version of PostgreSQL
+    container_name: auth_db
+    ports:
+      - "5433:5433"
+    environment:
+      POSTGRES_USER: mcp_admin
+      POSTGRES_PASSWORD: super_secret_pass_1201!
+      POSTGRES_DB: auth_db # Initial database
+
+  chat_db:
+    image: postgres:15-alpine # lightweight version of PostgreSQL
+    container_name: chat_db
+    ports:
+      - "5434:5434"
+    environment:
+      POSTGRES_USER: mcp_admin
+      POSTGRES_PASSWORD: super_secret_pass_1201!
+      POSTGRES_DB: chat_db # Initial database
+    volumes:
+      - chat_db_data:/var/lib/postgresql/data
+
+  log_db:
+    image: postgres:15-alpine # lightweight version of PostgreSQL
+    container_name: log_db
+    ports:
+      - "5435:5435"
+    environment:
+      POSTGRES_USER: mcp_admin
+      POSTGRES_PASSWORD: super_secret_pass_1201!
+      POSTGRES_DB: log_db # Initial database
+    volumes:
+      - log_db_data:/var/lib/postgresql/data
+
+volumes:
+  auth_db_data:
+  chat_db_data:
+  log_db_data:

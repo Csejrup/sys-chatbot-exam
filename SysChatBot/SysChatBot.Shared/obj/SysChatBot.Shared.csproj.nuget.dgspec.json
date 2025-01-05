@@ -1,21 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj": {}
+    "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj": {}
   },
   "projects": {
-    "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj": {
+    "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj",
+        "projectUniqueName": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj",
         "projectName": "SysChatBot.Shared",
-        "projectPath": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj",
-        "packagesPath": "/Users/csejrup/.nuget/packages/",
-        "outputPath": "/Users/csejrup/Development/repos/casper repos/SI-ChatBot-Exam-Project/SysChatBot/SysChatBot.Shared/obj/",
+        "projectPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/SysChatBot.Shared.csproj",
+        "packagesPath": "/Users/patrickjakobsenjahn/.nuget/packages/",
+        "outputPath": "/Users/patrickjakobsenjahn/Desktop/Uddannelse/EASV Software Development/SL/sys-chatbot-exam/SysChatBot/SysChatBot.Shared/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/Users/csejrup/.nuget/NuGet/NuGet.Config"
+          "/Users/patrickjakobsenjahn/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -37,12 +36,19 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        }
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "EasyNetQ": {
+              "target": "Package",
+              "version": "[7.8.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

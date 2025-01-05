@@ -1,0 +1,116 @@
+{
+  "Routes": [
+
+    {
+      "DownstreamPathTemplate": "/api/authentication/authenticate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationservice",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/auth/authenticate",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/authentication/signup",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationservice",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/auth/signup",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/api/chat/test",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "chatservice",
+          "Port": 8080
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+     "AddHeadersToRequest": {
+       "userId": "Claims[userId] > value > |"
+       },
+     
+      "UpstreamPathTemplate": "/chat/test",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/chat/chat",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "chatservice",
+          "Port": 8080
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AddHeadersToRequest": {
+        "userId": "Claims[userId] > value > |"
+      },
+
+      "UpstreamPathTemplate": "/chat/",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+
+
+    {
+      "DownstreamPathTemplate": "/api/conversation/{conversationId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "chatservice",
+          "Port": 8080
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AddHeadersToRequest": {
+        "userId": "Claims[userId] > value > |"
+      },
+      "UpstreamPathTemplate": "/conversation/{conversationId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/conversation",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "chatservice",
+          "Port": 8080
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AddHeadersToRequest": {
+        "userId": "Claims[userId] > value > |"
+      },
+      "UpstreamPathTemplate": "/conversations",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ],
+  
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8080"
+
+  }
+    }

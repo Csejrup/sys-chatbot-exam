@@ -1,0 +1,113 @@
+# Swap files and temporary files
+*.swp
+*.*~
+.project.lock.json
+.DS_Store
+*.pyc
+
+# NuGet packages
+nupkg/
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains Rider
+.idea/
+.rider/
+*rider.*
+*.info
+
+# JetBrains Fleet
+.fleet/
+
+# CodeRush
+.cr/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+# MSBuild logs
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Generated files and lock files
+*.log
+*.lock
+package-lock.json
+yarn.lock
+npm-debug.log*
+pnpm-debug.log*
+
+# IDE and editor-specific settings
+*.sln.iml
+*.iml
+*.idea/
+*.gch
+
+# Mono
+mono_crash.*
+
+# .NET
+*.deps.json
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+
+# ASP.NET
+appsettings.json
+appsettings.Development.json
+
+# Docker
+*.stackdump
+.dockerignore
+docker-compose.override.yml
+
+# Azure Pipelines
+.azure-pipelines/
+
+# Coverage and testing results
+TestResults/
+*.coverage
+*.coveragexml
+*.codecov
+coverage.*
+.nyc_output/
+
+# Node.js (if applicable)
+node_modules/
+
+# Python (if applicable)
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Temporary files and folders
+*.tmp
+*.temp
+*.bak
+*.log
+*.old
+*.cache
+.cache/
+
+# Operating system files
+Thumbs.db
+ehthumbs.db
+Icon?

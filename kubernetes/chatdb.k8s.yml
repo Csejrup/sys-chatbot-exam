@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: chat-db-pvc
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chat-db  # The name of the service that will be used for DNS resolution
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    app: chat-db  # This should match the label of the database StatefulSet
+
+---
+
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: chat-db
+  namespace: default
+spec:
+  serviceName: "chat-db"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chat-db
+  template:
+    metadata:
+      labels:
+        app: chat-db
+    spec:
+      containers:
+      - name: chat-db
+        image: postgres:15-alpine
+        ports:
+        - containerPort: 5434
+        env:
+         - name: POSTGRES_USER
+           value: "mcp_admin"
+         - name: POSTGRES_PASSWORD
+           value: "super_secret_pass_1201!"
+         - name: POSTGRES_DB
+           value: "chat_db"
+        volumeMounts:
+        - name: chat-db-data
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: chat-db-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
